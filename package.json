@@ -4,7 +4,9 @@
   "description": "Take Home Test from ABN AMRO",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc -p .",
+    "dev": "NODE_ENV=dev nodemoon -r tsconfig-paths/register src/app.ts",
+    "test": "NODE_ENV=test mocha --check-leaks -r tsconfig-paths/register -r ts-node/register \"test/**/*.spec.ts\""
   },
   "repository": {
     "type": "git",

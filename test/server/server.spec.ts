@@ -1,7 +1,7 @@
 import request from "supertest";
 import { expect } from "chai";
 
-import createServer from "server";
+import createServer from "../../src/server";
 
 const app = createServer();
 

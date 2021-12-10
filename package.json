@@ -1,0 +1,19 @@
+{
+  "name": "abn-amro-take-home",
+  "version": "1.0.0",
+  "description": "Take Home Test from ABN AMRO",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/orderr66/abn-amro-take-home.git"
+  },
+  "author": "Kanan Hagverdiyev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/orderr66/abn-amro-take-home/issues"
+  },
+  "homepage": "https://github.com/orderr66/abn-amro-take-home#readme"
+}

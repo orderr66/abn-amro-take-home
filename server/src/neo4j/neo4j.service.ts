@@ -5,11 +5,14 @@ export class Neo4jService {
 
   private driver: Driver;
 
-  getDefaultDriver(): Driver {
+  constructor() {
     this.driver = neo4j.driver(
       config.host,
       neo4j.auth.basic(config.username, config.password)
     )
+  }
+
+  getDefaultDriver(): Driver {
     return this.driver
   }
 
@@ -41,12 +44,12 @@ export class Neo4jService {
     })
   }
 
-  read(cypher: string, params: Record<string, any>, database?: string): Result {
+  readQuery(cypher: string, params: Record<string, any>, database?: string): Result {
     const session = this.getReadSession(database)
     return session.run(cypher, params)
   }
 
-  write (cypher: string, params: Record<string, any>, database?: string): Result {
+  writeQuery(cypher: string, params: Record<string, any>, database?: string): Result {
     const session = this.getWriteSession(database)
     return session.run(cypher, params)
   }

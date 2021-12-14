@@ -12,7 +12,7 @@ const migrate = (service: Neo4jService): Promise<void> => {
   })
 }
 
-const startMigration = async () => {
+const startMigration = async (): Promise<void> => {
   const neo4jService: Neo4jService = new Neo4jService();
   const query: string = `MATCH (nodes:Node) RETURN nodes.name AS name`
   const isMigrated: boolean = await isNodesExist(neo4jService, query)

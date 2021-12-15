@@ -13,6 +13,11 @@ class NodeService {
     const result = await this.nodeRepository.createNode(node);
     return result;
   }
+  async deleteNode(node: object): Promise<Node> {
+    let newNode: Node = new Node(node)
+    const result = await this.nodeRepository.deleteNode(newNode);
+    return result;
+  }
 }
 
 export default NodeService;

@@ -33,4 +33,11 @@ describe("Testing Neo4Service", function () {
       expect(result["name"]).equal("F");
     });
   });
+
+  it('Node deleteNode method should delete node', () => {
+    const node: Node = new Node({name: "F", description: "This is a description of F", parent: "A" })
+    return nodeRepo.deleteNode(node).then(result => {
+      expect(!!result).equal(true);
+    });
+  });
 })

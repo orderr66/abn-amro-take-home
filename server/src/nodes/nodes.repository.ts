@@ -33,5 +33,18 @@ export class NodeRepository {
       return error
   })
   }
+  deleteNode(node: Node): Promise<Node> {
+    const neo4jService = this.getNeo4JService();
+    const query: string = `MATCH (node:Node {name : '${node.getName()}'}) DETACH DELETE node`;
+    return neo4jService.writeQuery(query, {})
+    .then((result) => {
+      neo4jService.closeDriverConnection();
+      return result.summary.query.parameters;
+    })
+    .catch(error => {
+      console.log(error)
+      return error
+  })
+  }
 }
 export default NodeRepository;

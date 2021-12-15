@@ -2,7 +2,7 @@
 FROM node:lts-alpine as builder
 RUN npm install -g http-server
 WORKDIR usr/app
-COPY package*.json ./
+COPY client/package*.json ./
 RUN npm install
 COPY . .
 RUN npm run build

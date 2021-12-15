@@ -2,11 +2,11 @@
 # Builds TypeScript and produces an intermediate Docker image containing the compiled JavaScript code.
 FROM node:lts-alpine as builder
 WORKDIR /usr/app
-COPY package*.json ./
-COPY tsconfig.json ./
+COPY server/package*.json ./
+COPY server/tsconfig.json ./
 RUN npm install
-COPY src ./src
-COPY .env .
+COPY server/src ./src
+COPY server/.env .
 RUN npm run build
 
 # Build stage 2.
@@ -14,7 +14,7 @@ RUN npm run build
 # Builds the final Docker image for production.
 FROM node:lts-alpine
 WORKDIR /usr/app
-COPY package*.json ./
+COPY server/package*.json ./
 RUN npm install --only=production
 COPY --from=builder /usr/app/dist ./dist/
 COPY --from=builder /usr/app/.env ./dist/

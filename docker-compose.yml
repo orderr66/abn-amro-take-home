@@ -25,21 +25,19 @@ services:
     container_name: neo4j
     image: neo4j:latest
     ports:
-      - "7474:7474"
-      - "7687:7687"
+      - 7474:7474
+      - 7687:7687
     volumes:
+      - ./conf:/conf
       - ./data:/data
+      - ./import:/import
+      - ./logs:/logs
+      - ./plugins:/plugins
     environment:
       NEO4J_AUTH: neo4j/test
       NEO4J_dbms_logs_debug_level: DEBUG
     networks:
       - local_net
-  watchtower:
-    image: containrrr/watchtower
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - $HOME/.docker/config.json:/config.json
-    command: --interval 30
 networks:
   local_net:
     driver: bridge

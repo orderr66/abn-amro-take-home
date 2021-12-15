@@ -6,7 +6,6 @@ COPY server/package*.json ./
 COPY server/tsconfig.json ./
 RUN npm install
 COPY server/src ./src
-COPY server/.env .
 RUN npm run build
 
 # Build stage 2.
@@ -17,7 +16,6 @@ WORKDIR /usr/app
 COPY server/package*.json ./
 RUN npm install --only=production
 COPY --from=builder /usr/app/dist ./dist/
-COPY --from=builder /usr/app/.env ./dist/
 WORKDIR ./dist
 ENV NODE_PATH .
 EXPOSE 4000

@@ -11,6 +11,9 @@ router.get("/", async (req: Request, res: Response) => {
 router.post("/", async(req: Request, res: Response) => {
   await nodeController.createNode(req, res);
 })
+router.delete("/", async(req: Request, res: Response) => {
+  await nodeController.deleteNode(req, res);
+})
 
 export default router;
 

@@ -8,6 +8,17 @@ class Node {
 		this.description = node.description;
 		this.parent = node.parent;
 	}
+
+	public getName(): string {
+		return this.name;
+	}
+	public getDescription(): string {
+		return this.description;
+	}
+	public getParent(): string {
+		return this.parent;
+	}
+
 }
 
 export default Node

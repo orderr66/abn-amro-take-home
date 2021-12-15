@@ -16,6 +16,16 @@ class NodeController {
     const result = await this.nodeService.createNode(req.body);
     return res.json(result);
   }
+  async deleteNode(req: Request, res: Response) {
+    const isRequestBodyMissing: boolean = req.body.constructor === Object && Object.keys(req.body).length === 0;
+    if(isRequestBodyMissing) {
+      res.status(400);
+      return res.json({ message: "Reauest Body is Missing"})
+    }
+    const result = await this.nodeService.deleteNode(req.body);
+    res.status(204)
+    return res.json(result);
+  }
 }
 
 export default NodeController;

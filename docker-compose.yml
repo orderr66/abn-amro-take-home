@@ -1,0 +1,44 @@
+version: "3"
+services:
+  app:
+    container_name: client
+    image: index.docker.io/orderr66/client:latest
+    networks:
+      - local_net
+    depends_on:
+      - server
+      - neo4j
+    ports:
+      - "8080:8080"
+  server:
+    container_name: server
+    image: index.docker.io/orderr66/server:latest
+    env_file:
+      - .env
+    networks:
+      - local_net
+    depends_on:
+      - neo4j
+    ports:
+      - "4000:4000"
+  neo4j:
+    container_name: neo4j
+    image: neo4j:4.0.3
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    volumes:
+      - ./data:/data
+      - ./neo4j/plugins:/plugins
+    environment:
+      NEO4J_AUTH: neo4j/test
+      NEO4J_dbms_logs_debug_level: DEBUG
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - $HOME/.docker/config.json:/config.json
+    command: --interval 30
+networks:
+  local_net:
+    driver: bridge

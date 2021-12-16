@@ -17,8 +17,7 @@ services:
   server:
     container_name: server
     image: index.docker.io/orderr66/server:latest
-    command: "npm run migrate-prod"
-    restart: on-failure
+    restart: always
     env_file:
       - .env
     depends_on:

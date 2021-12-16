@@ -1,7 +1,7 @@
 import { QueryResult } from 'neo4j-driver';
-import { Neo4jService } from 'neo4j/neo4j.service';
+import { Neo4jService } from '../neo4j/neo4j.service';
 import Node from "./nodes.model";
-import { migrationQuery } from "data/utils";
+import { migrationQuery } from "../data/utils";
 
 export class NodeRepository {
 

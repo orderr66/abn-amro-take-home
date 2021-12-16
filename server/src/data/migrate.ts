@@ -1,4 +1,4 @@
-import { Neo4jService } from 'neo4j/neo4j.service';
+import { Neo4jService } from '../neo4j/neo4j.service';
 import { data, migrationQuery, isNodesExist } from "./utils";
 
 

@@ -1,4 +1,4 @@
-import { Neo4jService } from 'neo4j/neo4j.service';
+import { Neo4jService } from '../neo4j/neo4j.service';
 import { clearNodes } from "./utils";
 
 const startClearing = async (): Promise<void> => {

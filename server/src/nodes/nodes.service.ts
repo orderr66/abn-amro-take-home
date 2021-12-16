@@ -1,4 +1,3 @@
-import { QueryResult } from "neo4j-driver";
 import { NodeRepository } from './nodes.repository';
 import Node from './nodes.model';
 

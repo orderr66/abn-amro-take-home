@@ -9,7 +9,7 @@ export default function createServer() {
     res.send("Hello World");
   })
 
-  const allowOrigins = ["http://localhost:8080", "http://client:8080", "*"]
+  const allowOrigins = ["http://localhost:8080"]
 
   const options : cors.CorsOptions = {
     origin: allowOrigins

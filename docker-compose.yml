@@ -11,7 +11,7 @@ services:
       - server
       - neo4j
     ports:
-      - '80:80'
+      - '8080:8080'
     networks:
       - local_net
   server:

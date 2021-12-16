@@ -113,8 +113,8 @@ export default {
       this.parent = '';
     },
     removeNode(array, name){
-      for (var i = 0; i < array.length; ++i) {
-          var obj = array[i];
+      for (let i = 0; i < array.length; ++i) {
+          let obj = array[i];
           if (obj.name === name) {
               array.splice(i, 1);
               return true;
@@ -144,7 +144,7 @@ export default {
             return root;
           }
         if (root.children) {
-          for (var k in root.children) {
+          for (let k in root.children) {
             if (root.children[k].name == id) {
               return root.children[k];
             }
@@ -233,7 +233,7 @@ export default {
       link.enter().insert("path", "g")
         .attr("class", "link")
         .attr("d", () => {
-        var o = {x: source.x0, y: source.y0};
+        let o = {x: source.x0, y: source.y0};
         return this.diagonal({source: o, target: o});
         });
 
@@ -246,7 +246,7 @@ export default {
       link.exit().transition()
         .duration(this.duration)
         .attr("d", () => {
-        var o = {x: source.x, y: source.y};
+        let o = {x: source.x, y: source.y};
         return this.diagonal({source: o, target: o});
         })
         .remove();

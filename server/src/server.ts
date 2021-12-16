@@ -9,17 +9,11 @@ export default function createServer() {
     res.send("Hello World");
   })
 
-  const allowOrigins = ["http://localhost:8080"]
+  const allowOrigins = ["http://localhost:8080", "http://client:8080", "*"]
 
   const options : cors.CorsOptions = {
     origin: allowOrigins
   };
-
-  app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
 
   app.use(cors(options));
   app.use(express.urlencoded({extended: true}));

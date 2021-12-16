@@ -2,7 +2,7 @@ FROM node:lts-alpine as build-stage
 WORKDIR /usr/app
 COPY client/package*.json ./
 RUN npm install
-COPY client .
+COPY client/src ./src
 RUN npm run build
 
 # production stage

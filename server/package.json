@@ -8,7 +8,9 @@
     "dev": "NODE_ENV=dev nodemon -r tsconfig-paths/register src/app.ts",
     "test": "NODE_ENV=test mocha --check-leaks -r tsconfig-paths/register -r ts-node/register \"src/test/**/*.spec.ts\"",
     "migrate": "ts-node -r tsconfig-paths/register src/data/migrate.ts",
-    "clear-nodes": "ts-node -r tsconfig-paths/register src/data/clear.ts"
+    "clear-nodes": "ts-node -r tsconfig-paths/register src/data/clear.ts",
+    "migrate-prod": "node dist/data/migrate.js",
+    "clear-nodes prod": "node dist/data/clear.js"
 
   },
   "repository": {

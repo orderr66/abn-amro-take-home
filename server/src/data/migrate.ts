@@ -6,7 +6,7 @@ const migrate = (service: Neo4jService): Promise<void> => {
   service.getDefaultDriver().verifyConnectivity().then(result => {
     console.log("Successfully connected!")
   }).catch(error=>{
-    process.exit(1)
+    console.log(error)
   })
   return service.writeQuery(migrationQuery, {data: data.data})
     .then(() => {

@@ -1,4 +1,5 @@
 import express, { Application, Request, Response, NextFunction } from "express";
+import cors from "cors";
 import routes from "routes/index";
 
 export default function createServer() {
@@ -8,8 +9,15 @@ export default function createServer() {
     res.send("Hello World");
   })
 
-  app.use(express.urlencoded({extended: true}))
-  app.use(express.json())
+  const allowOrigins = ["http://localhost:8080"]
+
+  const options : cors.CorsOptions = {
+    origin: allowOrigins
+  };
+
+  app.use(cors(options));
+  app.use(express.urlencoded({extended: true}));
+  app.use(express.json());
   app.use(routes);
 
 

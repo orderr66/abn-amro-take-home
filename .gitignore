@@ -1,2 +1,7 @@
 .DS_Store
 data
+plugins
+logs
+import
+neo4j
+conf

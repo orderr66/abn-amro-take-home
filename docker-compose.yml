@@ -17,7 +17,7 @@ services:
   server:
     container_name: server
     image: index.docker.io/orderr66/server:latest
-    command: "npm run clear-nodes-prod && npm run migrate-prod"
+    command: "npm run migrate-prod"
     restart: on-failure
     env_file:
       - .env

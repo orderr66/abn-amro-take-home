@@ -3,6 +3,11 @@ import { data, migrationQuery, isNodesExist } from "./utils";
 
 
 const migrate = (service: Neo4jService): Promise<void> => {
+  service.getDefaultDriver().verifyConnectivity().then(result => {
+    console.log("Successfully connected!")
+  }).catch(error=>{
+    process.exit(1)
+  })
   return service.writeQuery(migrationQuery, {data: data.data})
     .then(() => {
       console.log("Migration process successfully finished!")

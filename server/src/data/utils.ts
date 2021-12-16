@@ -1,5 +1,5 @@
 import { QueryResult } from 'neo4j-driver-core';
-import { Neo4jService } from 'neo4j/neo4j.service';
+import { Neo4jService } from '../neo4j/neo4j.service';
 
 export const clearNodes = (service: Neo4jService, query:string): Promise<QueryResult> => {
   return service.writeQuery(query, {})

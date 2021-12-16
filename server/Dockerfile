@@ -17,8 +17,6 @@ COPY server/package*.json ./
 RUN npm install --only=production
 COPY --from=builder /usr/app/dist ./dist/
 WORKDIR ./dist
-RUN npm run clear-nodes-prod
-RUN npm migrate-prod
 ENV NODE_PATH .
 EXPOSE 4000
 RUN ls -l

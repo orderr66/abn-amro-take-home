@@ -9,6 +9,5 @@ RUN npm run build
 FROM node:lts-alpine
 RUN npm install -g http-server
 COPY --from=build-stage /usr/app/dist ./dist/
-WORKDIR ./dist
 EXPOSE 8080
 CMD [ "http-server", "dist" ]

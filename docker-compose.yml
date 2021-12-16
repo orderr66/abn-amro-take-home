@@ -43,3 +43,11 @@ services:
       - NEO4J_AUTH=neo4j/test
     networks:
       - local_net
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - $HOME/.docker/config.json:/config.json
+    command: --interval 30
+    networks:
+      - local_net
